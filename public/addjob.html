@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Job</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/lg.jpg">
+    <link rel="stylesheet" href="assets/css/main.css">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<script src = "assets/js/script.js"></script>
+<style>
+    .container2{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 550px;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+/* .container2 .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+} */
+.container2 .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  /* margin-bottom: 1.5rem; */
+}
+ .form input{
+   height: 60px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   /* margin-bottom: 1.3rem; */
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+ }
+ .form input:focus{
+   box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+ }
+.form a{
+  font-size: 16px;
+  color: #287ff0;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #287ff0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  /* margin-top: 5rem; */
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form input.button:hover{
+  background: #1c77ee;
+}
+
+</style>
+</head>
+<body>
+
+    <nav class = "navbar bg-white">
+        <div class="container">
+            <div class = "navbar-content">
+                <div class = "brand-and-toggler">
+                    <a href = "index.html" class = "navbar-brand">
+                      <img src = "assets/images/lg.jpg" alt = "" class = "navbar-brand-icon h-10 w-14" >
+                      <span class = "navbar-brand-text">OffCampus<span>.com</span>
+                    </a>
+                    <button type = "button" onclick="navMenu()" class = "">
+                       <a href="index.html" class="button">Home</a>
+                    </button>
+            
+                </div>
+            </div>
+        </div>
+    </nav>
+    <br><br><br><br></br>
+    <div class="container2">
+    <div class="registration form">
+        <header>Add Job Profile Details</header>
+        <form action="/jobs" method="post">
+          <input type="text" placeholder="Enter company name" name="company_name" id="company_name" required>
+          <input type="text" name="jobprofile" id="jobprofile" placeholder="Enter job profile" required>
+          <input type="number" name="yoe" id="yoe" placeholder="Enter YOE" required>
+          <input type="number" name="yop" id="yop" placeholder="Enter YOP" required>
+          <input type="text" name="jd" id="jd" placeholder="Enter Job Description" required>
+          <input type="text" name="ctc" id="ctc" placeholder="Enter CTC" required>
+          <input type="submit" class="button" value="submit" id="submit">
+        </form>
+    </div>
+      </div>
+
+      <div style="margin-top: 520px;">
+        <footer class="text-gray-900 body-font">
+          <div class="container px-1 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <img src = "assets/images/lg.jpg" alt = "" class = "navbar-brand-icon" style="height: 30px; width: 50px;">
+              <span class="ml-3 text-2xl">OffCampus.com</span>
+            </a>
+            <p class="text-sm text-gray-800 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 text-xl">© 2024 OffCampus.com —
+              <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">support@offcampus.in</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+              <a class="text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </footer>
+      </div>  
+</body>
+</html>

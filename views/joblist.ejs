@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>joblist</title>
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src = "assets/js/script.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets/images/lg.jpg"> 
+    <style>
+      table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #DDD;
+}
+
+tr:hover {background-color: #D6EEEE;}
+    </style>
+</head>
+<body>
+
+  <nav class = "navbar bg-white">
+    <div class="container">
+        <div class = "navbar-content">
+            <div class = "brand-and-toggler">
+                <a href = "index.html" class = "navbar-brand">
+                    <img src = "assets/images/lg.jpg" alt = "logo" class = "navbar-brand-icon h-10 w-14" >
+                    <span class = "navbar-brand-text">OffCampus<span>.com</span>
+                </a>
+                <button type = "button" onclick="navMenu()" class = "navbar-toggler-btn">
+                    <div class = "bars">
+                        <div class = "bar"></div>
+                        <div class = "bar"></div>
+                        <div class = "bar"></div>
+                    </div>
+                    <div class="navBar" id="navBar">
+                      <ul class="navBarList" id="navBarList">
+                       <!-- <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"><path fill="currentColor" d="m3.219 2.154l6.778 6.773l6.706-6.705c.457-.407.93-.164 1.119.04a.777.777 0 0 1-.044 1.035l-6.707 6.704l6.707 6.702c.298.25.298.74.059 1.014c-.24.273-.68.431-1.095.107l-6.745-6.749l-6.753 6.752c-.296.265-.784.211-1.025-.052c-.242-.264-.334-.72-.025-1.042l6.729-6.732l-6.701-6.704c-.245-.27-.33-.764 0-1.075c.33-.311.822-.268.997-.068"/></svg></a> -->
+                        <li class="" style="margin-left: 150px; border-radius: 50px;"> <a href="jobsearch.html"><svg xmlns="http://www.w3.org/2000/svg" width="em" height="1.5em" viewBox="0 0 20 20"><path fill="currentColor" d="m3.219 2.154l6.778 6.773l6.706-6.705c.457-.407.93-.164 1.119.04a.777.777 0 0 1-.044 1.035l-6.707 6.704l6.707 6.702c.298.25.298.74.059 1.014c-.24.273-.68.431-1.095.107l-6.745-6.749l-6.753 6.752c-.296.265-.784.211-1.025-.052c-.242-.264-.334-.72-.025-1.042l6.729-6.732l-6.701-6.704c-.245-.27-.33-.764 0-1.075c.33-.311.822-.268.997-.068"/></svg></a>
+                        </li>
+                        <li class="listItem"><a href="index.html">Home</a></li>
+                        <li class="listItem"><a href="getPremium.html">Get Premium</a></li>
+                        <li class="listItem"><a href="register.html">Login/Signup</a></li>
+                        <li class="listItem"><a href="interviewPrep.html">Interview preparation</a></li>
+                        <li class="listItem"><a href="feedback.html">Feedback</a></li>
+                        <li class="listItem"><a href="account.html">Profile</a></li>
+                        <li class="listItem"><a href="aboutus.html">About us</a></li>
+                      </ul>
+                    </div>
+                </button>
+        
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- jobsearch-section -->
+<br>
+   <center> <h1 class="mt-5 text-blue-500 text-3xl font-bold ">All Available Jobs for freshers/experience</h1></center><br><br>
+  <table class="table table-striped mt-5 ml-4" style="">
+    <thead>
+      <tr>
+        <th>S_no.</th>
+        <th>Company_name</th>
+        <th>Profile</th>
+        <th>YearOfExp.</th>
+        <th>YearOfPassing</th>
+        <th>Job Description</th>
+        <th>CTC</th>
+        <th>Apply now</th>
+
+        <!-- Add more columns as necessary -->
+      </tr>
+    </thead>
+    <tbody>
+      <% x.forEach((company,index) => { %>
+        <tr>
+          <td><%= ++index %></td>
+          <td><%= company.company_name %></td>
+          <td><%= company.jobprofile %></td>
+          <td><%= company.yoe %></td>
+          <td><%= company.yop %></td>
+          <td><%= company.jd %></td>
+          <td><%= company.ctc %></td>
+          <td><button type="button" onclick="" class="btn btn-primary"><a href="http://localhost:5005/applyform.html">Apply</a></button>
+          </td>
+
+          <!-- Add more columns as necessary -->
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>userProfile</title>
+    <link rel="icon" type="image/x-icon" href="assets/images/lg.jpg">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/script.js"></script>
+
+    <style>
+    
+.userProfile{
+    margin-top: 80px;
+    margin-left: 10%;
+    height: 420px;
+    width: 80%;
+    border:none;
+    border-radius: 6px;
+    background-color: rgb(238, 246, 255);
+}
+/* #profile-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 20px auto;
+  } */
+  #profile-photo {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+  }
+  #file-input {
+    display: none;
+  }
+  #save-button {
+    margin-top: 0px;
+    margin-left: 40px;
+    padding: 7px 12px;
+    width: 90px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  #save-button:hover{
+    background-color: #9d09e2;
+  }
+  #edit-button {
+    margin-top: 0px;
+    margin-left: -90px;
+    padding: 9px 29px;
+    width: 90px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  #edit-button:hover{
+    background-color: #9d09e2;
+  }
+  #upload-label{
+    margin-left: 130px;
+  }
+  
+#popup{
+  display: none;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  background-color: #0e91e3;
+  padding: 7px;
+  width: 250px;
+}
+
+    </style>
+</head>
+<body>
+  <nav class = "navbar bg-white">
+    <div class="container">
+        <div class = "navbar-content">
+            <div class = "brand-and-toggler">
+                <a href = "index.html" class = "navbar-brand">
+                    <img src = "assets/images/lg.jpg" alt = "" class = "navbar-brand-icon h-10 w-14" >
+                    <span class = "navbar-brand-text">OffCampus<span>.com</span>
+                </a>
+                <button type = "button" onclick="navMenu()" class = "navbar-toggler-btn">
+                    <div class = "bars">
+                        <div class = "bar"></div>
+                        <div class = "bar"></div>
+                        <div class = "bar"></div>
+                    </div>
+                    <div class="navBar" id="navBar">
+                      <ul class="navBarList" id="navBarList">
+                       <!-- <a href="index.html"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20"><path fill="currentColor" d="m3.219 2.154l6.778 6.773l6.706-6.705c.457-.407.93-.164 1.119.04a.777.777 0 0 1-.044 1.035l-6.707 6.704l6.707 6.702c.298.25.298.74.059 1.014c-.24.273-.68.431-1.095.107l-6.745-6.749l-6.753 6.752c-.296.265-.784.211-1.025-.052c-.242-.264-.334-.72-.025-1.042l6.729-6.732l-6.701-6.704c-.245-.27-.33-.764 0-1.075c.33-.311.822-.268.997-.068"/></svg></a> -->
+                        <li class="" style="margin-left: 150px; border-radius: 50px;"> <a href="account.html"><svg xmlns="http://www.w3.org/2000/svg" width="em" height="1.5em" viewBox="0 0 20 20"><path fill="currentColor" d="m3.219 2.154l6.778 6.773l6.706-6.705c.457-.407.93-.164 1.119.04a.777.777 0 0 1-.044 1.035l-6.707 6.704l6.707 6.702c.298.25.298.74.059 1.014c-.24.273-.68.431-1.095.107l-6.745-6.749l-6.753 6.752c-.296.265-.784.211-1.025-.052c-.242-.264-.334-.72-.025-1.042l6.729-6.732l-6.701-6.704c-.245-.27-.33-.764 0-1.075c.33-.311.822-.268.997-.068"/></svg></a>
+                        </li>
+                        <li class="listItem"><a href="index.html">Home</a></li>
+                        <li class="listItem"><a href="jobsearch.html">Job Search</a></li>
+                        <li class="listItem"><a href="register.html">Login/Signup</a></li>
+                        <li class="listItem"><a href="getPremium.html">Get Premium</a></li>
+                        <li class="listItem"><a href="interviewPrep.html">Interview preparation</a></li>
+                        <li class="listItem"><a href="feedback.html">Feedback</a></li>
+                        <li class="listItem"><a href="aboutus.html">About us</a></li>
+                      </ul>
+                    </div>
+                </button>
+        
+            </div>
+        </div>
+    </div>
+</nav>
+      
+      <div class="userProfile">
+        
+        <br>
+        <h1 style=" font-weight: bold; text-align: center;color: #058dfd;">Account Details</h1><br><center> <span id="popup">Profile picture updated !!!</span></center>
+        <div style="display: flex; margin: 20px; padding: 20px; justify-content:space-around;  font-size: 19px;">
+           <div> <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Microsoft_Account_Logo.svg" id="profile-photo"  style=" height: 150px;width: 150px; background: #dfdfdf; margin-left: 20px; object-fit: cover; border-radius: 50%; "> <br><input type="file" id="file-input" accept="image/*"><br>
+             <label for="file-input" id="upload-label"> 
+              <span id="edit-button">Edit</span>
+             </label>
+             <button id="save-button">Save</button><br>
+            </div>
+          
+        <p style="margin-top: 20px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; line-height: 130%;">
+       <form action="/acDetail" method="get">
+          <ul>
+        <li>Name Of User:</li>
+        <li>Email:</li>
+        <li>Phone-no:</li>
+        <li>College-Name:</li>
+        <li>Branch:</li>
+        <li>Address:</li>
+       </ul>
+       </form>
+        </p>
+           </div><br><br>
+             <!-- footer section -->
+        <footer class="text-gray-900 body-font">
+          <div class="container px-1 py-8 mx-auto flex items-center sm:flex-row flex-col">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+              <img src = "assets/images/lg.jpg" alt = "" class = "navbar-brand-icon" style="height: 30px; width: 50px;">
+              <span class="ml-3 text-2xl">OffCampus.com</span>
+            </a>
+            <p class="text-sm text-gray-800 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4 text-xl">© 2024 OffCampus.com —
+              <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">support@offcampus.in</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+              <a class="text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-900">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </footer>
+    </div><br><br>
+  
+
+    <script>
+       
+       const fileInput = document.getElementById('file-input');
+    const profilePhoto = document.getElementById('profile-photo');
+    const saveButton = document.getElementById('save-button');
+
+    fileInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const imageUrl = URL.createObjectURL(file);
+        profilePhoto.src = imageUrl;
+      }
+    });
+
+    saveButton.addEventListener('click', function() {
+      // Here you can implement code to save the photo (e.g., send it to a server).
+      // For demonstration purposes, we'll just log a message.
+     document.getElementById("popup").style.display="block"
+
+     setTimeout(()=>{
+      document.getElementById("popup").style.display="none"
+           },5000)
+
+
+    });
+//product status
+  
+    </script>
+</body>
+</html>
