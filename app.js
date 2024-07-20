@@ -127,7 +127,7 @@ const adminModel = mongoose.model("admindata", adminSchema);
 
 //mongodb://localhost:27017/mydatabase
 // Connect to MongoDB   mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-mongoose.connect("mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect("mongodb://localhost:27017/mydatabase", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
@@ -142,19 +142,37 @@ app.get('/offcampus', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 // contactus data
-app.post('/offcampus', (req, res) => {
+// app.post('/offcampus', (req, res) => {
+//   console.log(req.body);
+
+//   // Save data to MongoDB
+//   const newData = new DataModel(req.body);
+//   newData.save().then(() => {
+//     sendqEmail(req.body.email,req.body.name);
+//     console.log("we will solve your query as soon as possible..");
+//     res.sendFile(__dirname + '/public/index.html');
+//   }).catch(err => {
+//     console.error("Error saving data:", err);
+//     res.status(500).sendFile(__dirname + '/public/error.html'); 
+//     });
+// });
+
+
+app.post('/offcampus', async (req, res) => {
   console.log(req.body);
 
   // Save data to MongoDB
   const newData = new DataModel(req.body);
-  newData.save().then(() => {
-    sendqEmail(req.body.email,req.body.name);
-    console.log("we will solve your query as soon as possible..");
+  
+  try {
+    await newData.save();
+    await sendqEmail(req.body.email, req.body.name);
+    console.log("We will solve your query as soon as possible.");
     res.sendFile(__dirname + '/public/index.html');
-  }).catch(err => {
+  } catch (err) {
     console.error("Error saving data:", err);
-    res.status(500).sendFile(__dirname + '/public/error.html'); 
-    });
+    res.status(500).sendFile(__dirname + '/public/error.html');
+  }
 });
 
 
