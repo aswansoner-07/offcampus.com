@@ -126,8 +126,8 @@ const adminModel = mongoose.model("admindata", adminSchema);
 
 
 //mongodb://localhost:27017/mydatabase
-// Connect to MongoDB   mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-mongoose.connect("mongodb://localhost:27017/mydatabase", {
+// Connect to MongoDB   mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0
+mongoose.connect("mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
