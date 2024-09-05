@@ -114,6 +114,24 @@ const registerSchema = new mongoose.Schema({
     // Add more fields as needed
   });
 
+  
+  const testSchema = new mongoose.Schema({
+    // Define the structure of your data
+    // Example:
+    FullName: String,
+    email: String,
+    answer1:String,
+    answer2:String,
+    answer3:String,
+    answer4:String,
+    answer5:String,
+    date:{
+      type:Date,
+      default:Date.now
+    }
+    // Add more fields as needed
+  });
+
 // Create Mongoose Model
 const DataModel = mongoose.model("contactData", dataSchema);
 const registerModel = mongoose.model("regiterData", registerSchema);
@@ -122,7 +140,7 @@ const applyModel = mongoose.model("applyData", applySchema);
 const companyModel = mongoose.model("companydata", companySchema);
 const jobsModel = mongoose.model("jobsdata", jobsSchema);
 const adminModel = mongoose.model("admindata", adminSchema);
-
+const testModel = mongoose.model("testdata", testSchema);
 
 
 //mongodb://localhost:27017/mydatabase
@@ -131,7 +149,7 @@ mongoose.connect("mongodb+srv://aswnsonern7:41P8AviGHoc4zyw5@cluster0.goyltun.mo
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
-  console.log("MongoDB connected");
+  console.log("MongoDB connected successfully!!");
 }).catch(err => {
   console.error("MongoDB connection error:", err);
 });
@@ -354,6 +372,57 @@ app.post('/register',(req, res) => {
       console.log("Your Application successfully Submitted!");
     }).catch(err => {
       console.error("Error saving data:", err);
+      res.status(500).sendFile(__dirname + '/public/error.html'); 
+    });
+  });
+
+
+  //test data
+
+  function sendEmailTest(FullName,email,answer1,answer2,answer3,answer4,answer5){
+    let mailOptions = {
+      from: 'asuydv9433@gmail.com', // sender address
+      to: email, // list of receivers
+      subject: 'Offcampus.com', // Subject line
+      text: 'team offcampus.com', // plain text body
+      html: `<b>Dear ${FullName},<br>You are successfully Submitted your test.<br><br>
+      Answer(1)-${answer1}<br><br>
+      Answer(1)-${answer2}<br><br>
+      Answer(1)-${answer3}<br><br>
+      Answer(1)-${answer4}<br><br>
+      Answer(1)-${answer5}
+      <br><br>Best regards,<br>Team OffCampus.com </b>` // html body
+    };
+    
+    // Send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        return console.error(error);
+      }
+      console.log('Message sent: %s', info.messageId);
+    });
+    }
+
+  app.post('/testdata', (req, res) => {
+    console.log(req.body);
+    const email=req.body.email;
+    const FullName=req.body.FullName;
+    const answer1=req.body.answer1;
+    const answer2=req.body.answer2;
+    const answer3=req.body.answer3;
+    const answer4=req.body.answer4;
+    const answer5=req.body.answer5;
+
+
+
+    // Save data to MongoDB
+    const testData = new testModel(req.body);
+    testData.save().then(() => {
+      sendEmailTest(FullName,email,answer1,answer2,answer3,answer4,answer5);
+      res.sendFile(__dirname + '/public/thankyou.html');
+      console.log("Your Answers Submitted successfully!");
+    }).catch(err => {
+      console.error("Test not submitted Error:", err);
       res.status(500).sendFile(__dirname + '/public/error.html'); 
     });
   });
