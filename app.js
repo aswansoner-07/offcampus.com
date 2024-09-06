@@ -578,6 +578,21 @@ app.get('/getFeedback',(req, res) => {
           console.log(err)
         })
       });
+
+
+      //registered users
+  app.get('/testdata',(req, res) => {
+    testModel.find({})
+    .then((testdata)=>{
+      // res.sendFile(__dirname + '/views/joblist.js',{x});
+        res.render('./testdataAdmin',{testdata});
+        console.log(testdata);
+
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
+    });
    
       //remove 
 
