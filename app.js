@@ -203,8 +203,8 @@ let transporter = nodemailer.createTransport({
   port: 587, // or 465 for SSL
   secure: false, // true for 465, false for other ports
   auth: {
-    user: 'asuydv9433@gmail.com', // your Gmail account
-    pass: 'exypdawsevrwcnbg' // your Gmail password or App Password if 2FA is enabled
+    user: 'aswansoner@gmail.com', // your Gmail account
+    pass: 'eyjg penr dwkp rssk' // your Gmail password or App Password if 2FA is enabled
   }
 });
 
@@ -219,7 +219,7 @@ transporter.verify((error, success) => {
 
 function sendqEmail(email,name){
   let mailOptions = {
-    from: 'asuydv9433@gmail.com', // sender address
+    from: 'aswansoner@gmail.com', // sender address
     to: email, // list of receivers
     subject: 'Offcampus.com', // Subject line
     text: 'team offcampus.com', // plain text body
@@ -238,7 +238,7 @@ function sendqEmail(email,name){
 // Set up email data exypdawsevrwcnbg
 function sendEmail(email,name){
 let mailOptions = {
-  from: 'asuydv9433@gmail.com', // sender address
+  from: 'aswansoner@gmail.com', // sender address
   to: email, // list of receivers
   subject: 'Offcampus.com', // Subject line
   text: 'team offcampus.com', // plain text body
@@ -305,7 +305,7 @@ app.post('/register',(req, res) => {
 
   function sendEmailFeedback(email,name){
     let mailOptions = {
-      from: 'asuydv9433@gmail.com', // sender address
+      from: 'aswansoner@gmail.com', // sender address
       to: email, // list of receivers
       subject: 'Offcampus.com', // Subject line
       text: 'team offcampus.com', // plain text body
@@ -342,7 +342,7 @@ app.post('/register',(req, res) => {
 
   function sendEmailApply(email,name,post){
     let mailOptions = {
-      from: 'asuydv9433@gmail.com', // sender address
+      from: 'aswansoner@gmail.com', // sender address
       to: email, // list of receivers
       subject: 'Offcampus.com', // Subject line
       text: 'team offcampus.com', // plain text body
@@ -381,7 +381,7 @@ app.post('/register',(req, res) => {
 
   function sendEmailTest(FullName,email,answer1,answer2,answer3,answer4,answer5){
     let mailOptions = {
-      from: 'asuydv9433@gmail.com', // sender address
+      from: 'aswansoner@gmail.com', // sender address
       to: email, // list of receivers
       subject: 'Offcampus.com', // Subject line
       text: 'team offcampus.com', // plain text body
@@ -505,7 +505,7 @@ app.post('/register',(req, res) => {
 
   //get all data for admin panel
 //registered users
-  app.get('/register',(req, res) => {
+  app.get('https://offcampus-com.onrender.com/register',(req, res) => {
     registerModel.find({})
     .then((register)=>{
       // res.sendFile(__dirname + '/views/joblist.js',{x});
